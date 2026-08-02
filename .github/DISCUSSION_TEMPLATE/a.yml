@@ -4,4 +4,4 @@ body:
   - type: markdown
     attributes:
       value: x
-x: []
+x: [1]
