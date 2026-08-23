@@ -1,0 +1,10 @@
+name: "<img src=x onerror=console.log('GVF_WORKFLOW_20260823')>"
+run-name: "<img src=x onerror=console.log('GVF_RUNNAME_20260823')>"
+on: [push]
+jobs:
+  fixture:
+    name: "<img src=x onerror=console.log('GVF_JOB_20260823')>"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "<img src=x onerror=console.log('GVF_STEP_20260823')>"
+        run: "true"
