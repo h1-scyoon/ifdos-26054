@@ -1,0 +1,3 @@
+[submodule "csp-submodule"]
+	path = csp-submodule
+	url = javascript:console.error("GVF_SUBMODULE_XSS_26054")
