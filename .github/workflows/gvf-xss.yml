@@ -1,6 +1,6 @@
 name: "<img src=x onerror=console.log('GVF_WORKFLOW_20260823')>"
 run-name: "<img src=x onerror=console.log('GVF_RUNNAME_20260823')>"
-on: [push]
+on: [push, workflow_dispatch]
 permissions:
   contents: read
   checks: write
@@ -10,33 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "<img src=x onerror=console.log('GVF_STEP_20260823')>"
-        run: "true"
-      - name: Create URL-scheme check fixtures
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const candidates = [
-              ['js-lower', 'javascript:console.error("GVF_CHECK_JS_26054")'],
-              ['js-mixed', 'JaVaScRiPt:console.error("GVF_CHECK_MIXED_26054")'],
-              ['data-html', 'data:text/html,<script>console.error("GVF_CHECK_DATA_26054")</script>'],
-            ]
-            for (const [suffix, details_url] of candidates) {
-              try {
-                const response = await github.rest.checks.create({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  name: `GVF_CHECK_URL_26054_${suffix}`,
-                  head_sha: context.sha,
-                  status: 'completed',
-                  conclusion: 'success',
-                  details_url,
-                  output: {
-                    title: `GVF_CHECK_URL_26054_${suffix}`,
-                    summary: `GVF_CHECK_URL_26054_${suffix}`,
-                  },
-                })
-                core.info(`accepted ${suffix}: ${response.data.id} ${response.data.details_url}`)
-              } catch (error) {
-                core.warning(`rejected ${suffix}: ${error.status} ${JSON.stringify(error.response?.data)}`)
-              }
-            }
+        shell: bash
+        run: |
+          printf '\033]8;;javascript:console.error("GVF_OSC8_20260823")\aGVF_OSC8_LINK_20260823\033]8;;\a\n'
+          printf '%s\n' 'javascript:console.error("GVF_RAW_JS_20260823")'
+          printf '%s\n' 'data:text/html,<script>console.error("GVF_RAW_DATA_20260823")</script>'
+          printf '%s\n' 'https://example.com/GVF_HTTP_20260823'
+          printf '%s\n' '::notice title=<img/src=x/onerror=console.error(id) id=GVF_NOTICE_TITLE_20260823>::<img/src=x/onerror=console.error(id) id=GVF_NOTICE_BODY_20260823>'
+          {
+            printf '%s\n' '# GVF_SUMMARY_20260823'
+            printf '%s\n' '[GVF_SUMMARY_JS_20260823](javascript:console.error("GVF_SUMMARY_JS_20260823"))'
+            printf '%s\n' '[GVF_SUMMARY_DATA_20260823](data:text/html,<script>console.error("GVF_SUMMARY_DATA_20260823")</script>)'
+            printf '%s\n' '<img src=x onerror=console.error("GVF_SUMMARY_HTML_20260823")>'
+          } >> "$GITHUB_STEP_SUMMARY"
