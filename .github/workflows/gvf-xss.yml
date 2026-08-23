@@ -1,0 +1,14 @@
+name: "GVF annotation rendering fixture"
+on: [push]
+
+jobs:
+  annotation:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit attacker-controlled check annotation
+        shell: bash
+        run: |
+          echo '::error file=.github/workflows/gvf-xss.yml,line=1,col=1,title=<img src=x onerror=console.error("GVF_ANNOT_TITLE_XSS")>::<img src=x onerror=console.error("GVF_ANNOT_MESSAGE_XSS")>'
+          echo '<img src=x onerror=console.error("GVF_SUMMARY_XSS")>' >> "$GITHUB_STEP_SUMMARY"
