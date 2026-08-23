@@ -1,0 +1,1 @@
+<img src=x onerror=console.log('GVF_XSS_20260823')>

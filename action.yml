@@ -1,0 +1,9 @@
+name: "<img src=x onerror=console.log('GVF_ACTION_NAME_20260823')>"
+description: "<img src=x onerror=console.log('GVF_ACTION_DESC_20260823')>"
+inputs:
+  x:
+    description: "<img src=x onerror=console.log('GVF_ACTION_INPUT_20260823')>"
+    required: false
+runs:
+  using: composite
+  steps: []
