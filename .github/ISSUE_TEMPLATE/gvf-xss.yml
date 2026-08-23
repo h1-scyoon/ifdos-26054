@@ -1,0 +1,11 @@
+name: XSS fixture
+description: XSS fixture
+body:
+  - type: markdown
+    attributes:
+      value: "<img src=x onerror=console.log('GVF_FORM_MD_20260823')>"
+  - type: input
+    id: x
+    attributes:
+      label: XSS
+      description: "<img src=x onerror=console.log('GVF_FORM_DESC_20260823')>"
