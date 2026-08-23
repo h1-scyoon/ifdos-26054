@@ -1,0 +1,11 @@
+name: GVF checkbox CSP probe
+description: Authorized security rendering test
+title: "[GVF-CSP] "
+body:
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Rendering probe
+      options:
+        - label: "[GVF checkbox CSP probe](javascript:console.error(26054))"
+          required: false
