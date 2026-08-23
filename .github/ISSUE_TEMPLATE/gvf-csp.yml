@@ -7,5 +7,11 @@ body:
     attributes:
       label: Rendering probe
       options:
-        - label: "[GVF checkbox CSP probe](javascript:console.error(26054))"
-          required: false
+        - label: "[GVF markdown safe](https://example.com/gvf)"
+        - label: "[GVF markdown javascript](javascript:console.error(260540))"
+        - label: <a href=https://example.com/gvf>GVF raw safe</a>
+        - label: <a href=javascript:console.error(260541)>GVF raw direct</a>
+        - label: <a href=JaVaScRiPt:console.error(260542)>GVF raw mixed case</a>
+        - label: <a href=javascript&#58;console.error(260543)>GVF raw entity colon</a>
+        - label: <a href=jav&#x09;ascript:console.error(260544)>GVF raw tab entity</a>
+        - label: <a href=&#x6a;avascript:console.error(260545)>GVF raw entity j</a>
